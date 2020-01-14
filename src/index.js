@@ -1,20 +1,14 @@
 import _ from "lodash";
-import "./style.css";
-import dramaPotatoFile from "./dramapotato.png";
-import Data from "./data.xml";
+import printMe from "./print.js";
 
 function component() {
   const element = document.createElement("div");
+  const btn = document.createElement("button");
 
-  // Lodash, currently included via a script, is required for this line to work
   element.innerHTML = _.join(["Hey", "webpack"], " ");
-  element.classList.add("hello");
-
-  const dramaPotatoImage = new Image();
-  dramaPotatoImage.src = dramaPotatoFile;
-  element.appendChild(dramaPotatoImage);
-
-  console.log(Data);
+  btn.innerHTML = "Click me and check the console!";
+  btn.onclick = printMe;
+  element.appendChild(btn);
   return element;
 }
 
